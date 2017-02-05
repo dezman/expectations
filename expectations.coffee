@@ -12,20 +12,20 @@ class Spec
       console.warn "IT DOES NOT #{name}."
     else
       console.log "it does #{name}."
-      return true
+      true
 
   validateSpec: (name, executable) ->
     numberOfExpectations = executable.toString().split('expect').length
     if numberOfExpectations == 2
-      return ''
+      ''
     else if numberOfExpectations > 2
-      return "Spec '#{name}' has more than one expectation within an it block, which is not allowed."
+      "Spec '#{name}' has more than one expectation within an it block, which is not allowed."
     else
-      return "Spec '#{name}' has no expectations in it."
+      "Spec '#{name}' has no expectations in it."
 
   expect: (value) =>
     @currentValue = value
-    return this
+    this
 
   toBe: (value) =>
     @currentValue == value
